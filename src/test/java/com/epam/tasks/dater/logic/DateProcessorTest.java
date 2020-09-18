@@ -9,23 +9,29 @@ public class DateProcessorTest {
 
     @Test
     public void testGetNumberOfDaysWithCorrectMonthAndYear() throws IncorrectArgumentException {
-        int result = dateProcessor.findNumberOfDays(10, 2005);
+        int expected = 31;
 
-        Assert.assertEquals(31, result);
+        int actual = dateProcessor.findNumberOfDays(10, 2005);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetNumberOfDaysInFebruary() throws IncorrectArgumentException {
-        int result = dateProcessor.findNumberOfDays(2, 2018);
+        int expected = 28;
 
-        Assert.assertEquals(28, result);
+        int actual = dateProcessor.findNumberOfDays(2, 2018);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetNumberOfDaysInFebruaryWithLeapYear() throws IncorrectArgumentException {
-        int result = dateProcessor.findNumberOfDays(2, 2020);
+        int expected = 29;
 
-        Assert.assertEquals(29, result);
+        int actual = dateProcessor.findNumberOfDays(2, 2020);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test(expected = IncorrectArgumentException.class)
