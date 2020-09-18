@@ -8,8 +8,9 @@ import com.epam.tasks.dater.data.ConsoleInputServiceFactory;
 import com.epam.tasks.dater.data.InputService;
 import com.epam.tasks.dater.data.InputServiceFactory;
 import com.epam.tasks.dater.logic.DateProcessor;
-import com.epam.tasks.dater.view.ConsoleResultPrinter;
+import com.epam.tasks.dater.view.ConsoleResultPrinterFactory;
 import com.epam.tasks.dater.view.ResultPrinter;
+import com.epam.tasks.dater.view.ResultPrinterFactory;
 
 public class Main {
 
@@ -24,7 +25,8 @@ public class Main {
             DateProcessor dateProcessor = new DateProcessor();
             int numberOfDays = dateProcessor.findNumberOfDays(month, year);
 
-            ResultPrinter resultPrinter = new ConsoleResultPrinter();
+            ResultPrinterFactory resultPrinterFactory = new ConsoleResultPrinterFactory();
+            ResultPrinter resultPrinter = resultPrinterFactory.createResultPrinter();
             resultPrinter.print("Number of days in the month: ", numberOfDays);
         } catch (Exception e) {
             e.printStackTrace();
