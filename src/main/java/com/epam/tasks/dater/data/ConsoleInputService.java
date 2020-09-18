@@ -24,4 +24,5 @@ public class ConsoleInputService implements InputService {
         System.out.print(message);
         return readInt();
     }
+
 }

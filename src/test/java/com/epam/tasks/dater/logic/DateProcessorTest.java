@@ -43,4 +43,5 @@ public class DateProcessorTest {
     public void testGetNumberOfDaysWithNegative() throws IncorrectArgumentException {
         dateProcessor.findNumberOfDays(-10, -2005);
     }
+
 }
