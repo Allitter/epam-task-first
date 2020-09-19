@@ -24,7 +24,7 @@ public class Main {
         int numberOfDays = dateProcessor.findNumberOfDays(month, year);
 
         ResultPrinter resultPrinter = ResultPrinterFactory.createResultPrinter("Console");
-        resultPrinter.print("Number of days in the month: ", numberOfDays);
+        resultPrinter.print("Number of days in the month", numberOfDays);
     }
 
 }
