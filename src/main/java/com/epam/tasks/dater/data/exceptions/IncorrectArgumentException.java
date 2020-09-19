@@ -1,4 +1,4 @@
-package com.epam.tasks.dater.data;
+package com.epam.tasks.dater.data.exceptions;
 
 public class IncorrectArgumentException extends Exception {
 

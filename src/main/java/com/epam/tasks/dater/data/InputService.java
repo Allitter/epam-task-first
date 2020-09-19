@@ -1,11 +1,11 @@
 package com.epam.tasks.dater.data;
 
-import java.io.IOException;
+import com.epam.tasks.dater.data.exceptions.IncorrectArgumentException;
 
 public interface InputService {
 
-    int readInt() throws IncorrectArgumentException, IOException;
+    int readInt() throws IncorrectArgumentException;
 
-    int readIntWithMessage(String message) throws IncorrectArgumentException, IOException;
+    int readIntWithMessage(String message) throws IncorrectArgumentException;
 
 }

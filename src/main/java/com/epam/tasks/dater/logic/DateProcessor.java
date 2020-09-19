@@ -1,8 +1,14 @@
 package com.epam.tasks.dater.logic;
 
-import com.epam.tasks.dater.data.IncorrectArgumentException;
+import com.epam.tasks.dater.data.exceptions.IncorrectArgumentException;
 
 public class DateProcessor {
+    public static final int MIN_VALID_MONTH = 0;
+    public static final int MAX_VALID_YEAR = 9999;
+    public static final int MAX_VALID_MONTH = 12;
+    public static final int MIN_VALID_YEAR = 1;
+    public static final int FEBRUARY_DAYS_LEAP = 29;
+    public static final int FEBRUARY_DAYS_NON_LEAP = 28;
 
     public int findNumberOfDays(int month, int year)
             throws IncorrectArgumentException {
@@ -19,13 +25,14 @@ public class DateProcessor {
     }
 
     private boolean isMonthValid(int month) {
-        return month < 13 && month > 0;
+        return month <= MAX_VALID_MONTH && month >= MIN_VALID_MONTH;
     }
 
     private boolean isYearValid(int year) {
-        return year >= 0 && year < 10000;
+        return year >= MIN_VALID_YEAR && year <= MAX_VALID_YEAR;
     }
 
+    // Leap year must be divided by 4 without residue and it shouldn't be century except centuries that is divided by 4
     private boolean isLeapYear(int year) {
         return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
     }
@@ -48,7 +55,7 @@ public class DateProcessor {
             case 11:
                 return 30;
             case 2:
-                return isLeapYear ? 29 : 28;
+                return isLeapYear ? FEBRUARY_DAYS_LEAP : FEBRUARY_DAYS_NON_LEAP;
             default:
                 throw new IncorrectArgumentException("Incorrect day number");
         }

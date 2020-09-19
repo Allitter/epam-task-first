@@ -1,7 +1,15 @@
 package com.epam.tasks.dater.data;
 
-public interface InputServiceFactory {
+import com.epam.tasks.dater.data.exceptions.FactoryNotExistsException;
 
-    InputService getInputService();
+public class InputServiceFactory {
 
+    public static InputService createInputService(String name) throws FactoryNotExistsException {
+        switch (name.toLowerCase()) {
+            case "console" :
+                return new ConsoleInputService();
+            default:
+                throw new FactoryNotExistsException("Incorrect InputService name");
+        }
+    }
 }

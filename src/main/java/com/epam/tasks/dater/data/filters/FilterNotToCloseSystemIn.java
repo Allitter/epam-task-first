@@ -1,4 +1,4 @@
-package com.epam.tasks.dater.data;
+package com.epam.tasks.dater.data.filters;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class FilterNotToCloseSystemIn extends FilterInputStream {
      * @param in the underlying input stream, or <code>null</code> if
      *           this instance is to be created without an underlying stream.
      */
-    protected FilterNotToCloseSystemIn(InputStream in) {
+    public FilterNotToCloseSystemIn(InputStream in) {
         super(in);
     }
 
